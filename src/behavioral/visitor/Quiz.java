@@ -1,0 +1,33 @@
+package behavioral.visitor;
+
+/**
+ * Role: Concrete Element
+ *
+ * Represents a quiz in the course.
+ * Accepts a visitor and delegates to the correct visit method.
+ */
+public class Quiz implements CourseContent {
+
+    private String title;
+    private Integer numberOfQuestions;
+
+    public Quiz(String title, Integer numberOfQuestions) {
+        this.title = title;
+        this.numberOfQuestions = numberOfQuestions;
+    }
+
+    @Override
+    public String getTitle() {
+        return title;
+    }
+
+    public Integer getNumberOfQuestions() {
+        return numberOfQuestions;
+    }
+
+    @Override
+    public void accept(ContentVisitor visitor) {
+        visitor.visit(this);
+    }
+
+}
