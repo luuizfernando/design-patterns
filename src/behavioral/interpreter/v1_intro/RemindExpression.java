@@ -1,0 +1,21 @@
+package behavioral.interpreter.v1_intro;
+
+/**
+ * Role: Concrete / Terminal Expression
+ *
+ * Handles the /remind command by creating a reminder for the current user.
+ */
+public class RemindExpression implements Expression {
+    private String reminderText;
+
+    public RemindExpression(String reminderText) {
+        this.reminderText = reminderText;
+    }
+
+    @Override
+    public void interpret(ChatContext chatContext) {
+        System.out.println(
+                "[Remind] Reminder created for " + chatContext.getCurrentUser() +": " + reminderText
+        );
+    }
+}
